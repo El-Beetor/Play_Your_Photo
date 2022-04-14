@@ -17,10 +17,23 @@ function setup() {
     inputs.position(w*3/5, h/20);
     inputs.style('font-size', '18px');
 
-    slider = createSlider(0.1, 5, .5,0);
+    slider = createSlider(0.1, 5, 5,0);
     slider.position(w/20, h/20);
     slider.style('width', '200px');
-
+    img = createImg('files/Mini Van Gogh.jpeg');
+    imgc = loadImage('files/Mini Van Gogh.jpeg');
+    img.hide();
+    
+    button = createButton('Play Song');
+    button.style('font-size', '18px');
+    button.position(w*4.5/10, h/20-10);
+    button.size(100,50);
+    button.mousePressed(playSong);
+    buttonSoundType = createButton('Change Sound type ');
+    buttonSoundType.style('font-size', '20px');
+    buttonSoundType.position(w*3.5/10, h/20-10);
+    buttonSoundType.size(100,100);
+    buttonSoundType.mousePressed(changeSoundType);
   }
 
   function windowResized() {
@@ -39,16 +52,16 @@ function setup() {
           //imgc.loadPixels();
           img.hide();
 
-          button = createButton('Play Song');
-          button.style('font-size', '18px');
-          button.position(w*4.5/10, h/20-10);
-          button.size(100,50);
-          button.mousePressed(playSong);
-          buttonSoundType = createButton('Change Sound type ');
-          buttonSoundType.style('font-size', '20px');
-          buttonSoundType.position(w*3.5/10, h/20-10);
-          buttonSoundType.size(100,100);
-          buttonSoundType.mousePressed(changeSoundType);
+          // button = createButton('Play Song');
+          // button.style('font-size', '18px');
+          // button.position(w*4.5/10, h/20-10);
+          // button.size(100,50);
+          // button.mousePressed(playSong);
+          // buttonSoundType = createButton('Change Sound type ');
+          // buttonSoundType.style('font-size', '20px');
+          // buttonSoundType.position(w*3.5/10, h/20-10);
+          // buttonSoundType.size(100,100);
+          // buttonSoundType.mousePressed(changeSoundType);
         //   button = createButton('Play Song');
         // button.style('font-size', '18px');
         // button.position(w*2/5, h/20-10);
@@ -81,11 +94,10 @@ function setup() {
     if (img) {
         image(img,w/2-img.width*val/2,h/10,img.width*val, img.height*val);
         //filter(BLUR, 3);
-    }
-    else{
+
       fill(255);
         textSize(50);
-        text('Upload a photo and see what song it plays!',w/4,h/2);
+        text('Upload a photo and see what song it plays!',w/4,h*3/4);
     }
 
     //rect(0, 100, 55, 55);
